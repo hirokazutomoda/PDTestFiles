@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8"></meta>
+		<style type="text/css"></style>
+		<script type="text/javascript">
+			const errMsg = "Unexpected Error";
+			const arrOpr = [
+				['Plus' , '+'],
+				['Minus' , '-'],
+				['Times' , '*'],
+				['Divide' , '/']
+			];
+			
+			class Solver {
+				constructor() {
+				}
+
+				setObject(objS) {
+					this.arrCalc = [objS.operand1, objS.operator, objS.operand2];
+				}
+
+				setArray(arrS) {
+					this.arrCalc = arrS;
+				}
+
+				getResult() {
+					return this.calculator(this.arrCalc);
+				}
+
+				calculator(arrC) {
+					var oprnd1;
+					var oprtr;
+					var oprnd2;
+					
+					if (arrC[0].length === undefined){
+						oprnd1 = arrC[0];
+					} else if (arrC[0].length == 3) {
+						oprnd1 = this.calculator(arrC[0]);
+					} else {
+						oprnd1 = errMsg;
+					}
+					oprtr = this.getOpr(arrC[1]);
+					if (arrC[2].length === undefined){
+						oprnd2 = arrC[2];
+					} else if (arrC[2].length == 3) {
+						oprnd2 = this.calculator(arrC[2]);
+					} else {
+						oprnd2 = errMsg;
+					}
+
+					try{
+						return eval(oprnd1 + oprtr + oprnd2);
+					}
+					catch(e){
+						return errMsg;
+					}
+				}
+				
+				getOpr(oprKey) {
+					var res = errMsg;
+					arrOpr.forEach((value, key) => { 
+						if(oprKey == value[0]) {
+							res =  value[1];
+						}
+					});
+					return res;
+				}
+				
+			}
+
+			function calcWithObj() {
+				var obj = new Object();
+				obj.operand1 = 3;
+				obj.operator = 'Plus';
+				obj.operand2 = 1;
+				var slv = new Solver();
+				slv.setObject(obj);
+				document.getElementById("calc").elements["z1"].value = slv.getResult();
+			}
+			function calcWithArr() {
+				var arr1 = '[3, "Plus", [6, "Times", 2]]';
+				var arr = '[3, "Plus", [6, "Times", 2]]';
+				var slv = new Solver();
+				slv.setArray(arr);
+				document.getElementById("calcArr").elements["z2"].value = slv.getResult();
+			}
+		</script>
+	</head>
+	<body>
+		<form id="calc">
+			<input name="x1" type="number" value="0" />
+			<select name="op">
+				<option value="Plus">Plus</option>
+				<option value="Minus">Minus</option>
+				<option value="Times">Times</option>
+				<option value="Divide">Divide</option>
+			</select>
+			<input name="y1" type="number" value="0" onclick="Solver.updateOutput()"  />
+			<input name="c" type="button" value="=" onclick="calcWithObj()" />
+			<output name="z1">0</output>
+		</form>
+		<form id="calcArr">
+			<textarea name="arrForm">[3, "Plus", [6, "Times", 2]]</textarea>
+			<input name="xy" type="button" value="=" onclick="calcWithArr()" />
+			<output name="z2">0</output>
+		</form>
+	</body>
+</html>

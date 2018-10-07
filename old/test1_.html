@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8"></meta>
+		<style type="text/css"></style>
+		<script type="text/javascript">
+			const errMsg = "Unexpected Error";
+			const arrOpr = [
+				['Plus' , '+'],
+				['Minus' , '-'],
+				['Times' , '*'],
+				['Divide' , '/']
+			];
+			
+			class Solver {
+				constructor() {
+				}
+
+				setObject(objS) {
+					this.arrCalc = [objS.operand1, objS.operator, objS.operand2];
+				}
+
+				setArray(arrS) {
+					this.arrCalc = arrS;
+				}
+
+				getResult() {
+					return this.calculator(this.arrCalc);
+				}
+
+				calculator(arrC) {
+				}
+				
+				
+				getOpr(oprKey) {
+					var res = errMsg;
+					arrOpr.forEach((value, key) => { 
+						if(oprKey == value[0]) {
+							res =  value[1];
+						}
+					});
+					return res;
+				}
+				
+			}
+
+			
+			function calcWithArr() {
+				var arr = [3, "Plus", [6, "Times", 2]];
+				var slv = new Solver();
+				slv.setArray(arr);
+				return slv.getResult();
+			}
+			
+			function calcWithObj() {
+				var obj = new Object();
+				obj.operand1 = parseInt(document.getElementById("calc").elements["x1"].value);
+				obj.operator = document.getElementById("calc").elements["op"].value
+				obj.operand2 = parseInt(document.getElementById("calc").elements["y1"].value);
+				var slv = new Solver();
+				slv.setObject(obj);
+				document.getElementById("calc").elements["z1"].value = slv.getResult();
+			}
+		</script>
+	</head>
+	<body>
+		<form id="calc">
+			<input name="x" type="number" value="0" />
+			<select name="op">
+				<option value="Plus">Plus</option>
+				<option value="Minus">Minus</option>
+				<option value="Times">Times</option>
+				<option value="Divide">Divide</option>
+			</select>
+			<input name="y" type="number" value="0" onclick="Solver.updateOutput()"  />
+			<input name="c" type="button" value="=" onclick="calcWithObj()" />
+			<output name="z">0</output>
+		</form>
+		<form id="calcArr">
+			<textarea name="arrForm">[3, "Plus", [6, "Times", 2]]</textarea>
+			<input name="c" type="button" value="=" onclick="calcWithArr()" />
+			<output name="z">0</output>
+		</form>
+	</body>
+</html>

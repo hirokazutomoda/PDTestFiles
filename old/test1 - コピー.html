@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8"></meta>
+		<style type="text/css"></style>
+		<script type="text/javascript">
+			const errMsg = "Unexpected Error";
+			const arrOpr = [
+				['Plus' , '+'],
+				['Minus' , '-'],
+				['Times' , '*'],
+				['Divide' , '/']
+			];
+			
+			class Solver {
+				constructor() {}
+
+				setObject(objS) {
+					this.oprnd1 = objS.operand1;
+					this.oprtr = objS.operator;
+					this.oprnd2 = objS.operand2;
+				}
+
+				calculator() {
+					this.oprtr = this.getOpr(this.oprtr) 
+					return eval(this.oprnd1 + this.oprtr + this.oprnd2);
+				}
+				
+				getOpr(oprKey) {
+					var res = errMsg;
+					arrOpr.forEach((value, key) => { 
+						console.log(key);
+						if(oprKey == value[0]) {
+							res =  value[1];
+						}
+						console.log(value);
+					});
+					return res;
+				}
+				
+				static updateOutput() {
+					
+					var form = document.getElementById("calc");
+					var out = form.elements["z"];
+					var num1 = parseInt(form.elements["x"].value);
+					var num2 = parseInt(form.elements["y"].value);
+					var operator = form.elements["op"].value;
+					out.value = eval(num1 + operator + num2);
+	/*
+					switch(operator){
+						case "+": out.value = num1+num2; break;
+						case "-": out.value = num1-num2; break;
+						case "*": out.value = num1*num2; break;
+						case "/": out.value = num1/num2; break;
+						default: out.value = errMsg; break;
+					}
+	*/
+				}
+			}
+
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+//			window.onload = console.log(Solver.getOpr("Minus"));
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+
+			function calcWithArr() {
+			}
+			
+			function calcWithObj() {
+				var obj = new Object();
+				obj.operand1 = parseInt(document.getElementById("calc").elements["x"].value);
+				obj.operator = document.getElementById("calc").elements["op"].value
+				obj.operand2 = parseInt(document.getElementById("calc").elements["y"].value);
+				var slv = new Solver();
+				slv.setObject(obj);
+				document.getElementById("calc").elements["z"].value = slv.calculator();
+			}
+		</script>
+	</head>
+	<body>
+		<form id="calc">
+			<input name="x" type="number" value="0" />
+			<select name="op">
+				<option value="Plus">Plus</option>
+				<option value="Minus">Minus</option>
+				<option value="Times">Times</option>
+				<option value="Divide">Divide</option>
+			</select>
+			<input name="y" type="number" value="0" onclick="Solver.updateOutput()"  />
+			<input name="c" type="button" value="=" onclick="calcWithObj()" />
+			<output name="z">0</output>
+		</form>
+		<form id="calcArr">
+			<textarea name="arrForm">[3, "Plus", [6, "Times", 2]]</textarea>
+			<input name="c" type="button" value="=" onclick="calcWithArr()" />
+			<output name="z">0</output>
+		</form>
+	</body>
+</html>

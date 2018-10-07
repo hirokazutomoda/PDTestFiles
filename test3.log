@@ -1,0 +1,46 @@
+2018-10-07 09:23:14 get=>
+2018-10-07 09:23:19 get=>eee
+2018-10-07 09:23:21 get=>aaa
+2018-10-07 09:23:26 post=>bbb
+2018-10-07 09:27:01 get=>
+2018-10-07 09:27:02 post=>
+2018-10-07 09:27:06 get=>aaa
+2018-10-07 09:27:13 post=>ppppp
+2018-10-07 09:27:55 post=>ppppp
+2018-10-07 11:24:02 
+2018-10-07 11:24:05 get=>eee
+2018-10-07 11:24:06 get=>aaa
+2018-10-07 11:24:13 post=>ooo
+2018-10-07 11:28:35 get=>xxx
+2018-10-07 11:33:33 get=>2
+2018-10-07 11:33:34 get=>1
+2018-10-07 11:45:13 get=>1
+2018-10-07 11:45:14 get=>2
+2018-10-07 11:46:24 get=>1
+2018-10-07 11:46:26 get=>2
+2018-10-07 11:47:42 get=>1
+2018-10-07 11:47:44 get=>0
+2018-10-07 11:51:22 get=>
+2018-10-07 12:11:35 get=>1
+2018-10-07 12:11:49 get=>1
+2018-10-07 12:18:13 get=>1?imgid=1?vwtime=NaN?usragent=Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:62.0) Gecko/20100101 Firefox/62.0
+2018-10-07 12:18:14 get=>2?imgid=2?vwtime=NaN?usragent=Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:62.0) Gecko/20100101 Firefox/62.0
+2018-10-07 12:18:17 get=>0?imgid=0?vwtime=NaN?usragent=Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:62.0) Gecko/20100101 Firefox/62.0
+2018-10-07 12:22:48 get=>0?imgid=0?vwtime=5401ms?usragent=Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:62.0) Gecko/20100101 Firefox/62.0
+2018-10-07 12:22:50 get=>1?imgid=1?vwtime=1792ms?usragent=Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:62.0) Gecko/20100101 Firefox/62.0
+2018-10-07 12:24:21 get=>2
+2018-10-07 12:24:25 get=>0
+2018-10-07 12:24:25 get=>1
+2018-10-07 12:30:37 method: get, identifire: 0, view_time: 372288ms, user_agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:62.0) Gecko/20100101 Firefox/62.0
+2018-10-07 12:34:04 method=>GET, identifire=>1, view_time=>6584ms, user_agent=>Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:62.0) Gecko/20100101 Firefox/62.0
+2018-10-07 12:34:07 method=>GET, identifire=>0, view_time=>2913ms, user_agent=>Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:62.0) Gecko/20100101 Firefox/62.0
+2018-10-07 12:34:07 method=>GET, identifire=>2, view_time=>144ms, user_agent=>Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:62.0) Gecko/20100101 Firefox/62.0
+2018-10-07 12:41:03 method=>GET, identifire=>img2, view_time=>5312ms, user_agent=>Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:62.0) Gecko/20100101 Firefox/62.0
+2018-10-07 12:41:32 method=>GET, identifire=>img2, view_time=>2305ms, user_agent=>Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:62.0) Gecko/20100101 Firefox/62.0
+2018-10-07 12:42:04 method=>GET, identifire=>img2, view_time=>2631ms, user_agent=>Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:62.0) Gecko/20100101 Firefox/62.0
+2018-10-07 12:42:05 method=>GET, identifire=>img1, view_time=>1485ms, user_agent=>Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:62.0) Gecko/20100101 Firefox/62.0
+2018-10-07 12:42:32 method=>GET, identifire=>img2, view_time=>1865ms, user_agent=>Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:62.0) Gecko/20100101 Firefox/62.0
+2018-10-07 12:43:56 method=>GET, identifire=>img1, view_time=>1786ms, user_agent=>Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:62.0) Gecko/20100101 Firefox/62.0
+2018-10-07 12:45:32 method=>GET, identifire=>img1, view_time=>2072ms, user_agent=>Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:62.0) Gecko/20100101 Firefox/62.0
+2018-10-07 12:45:58 method=>GET, identifire=>img2, view_time=>25557ms, user_agent=>Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:62.0) Gecko/20100101 Firefox/62.0
+2018-10-07 12:45:58 method=>GET, identifire=>img0, view_time=>432ms, user_agent=>Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:62.0) Gecko/20100101 Firefox/62.0

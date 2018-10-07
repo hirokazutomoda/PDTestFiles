@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8"></meta>
+		<style type="text/css"></style>
+		<script type="text/javascript">
+			//Array of operator (*if operaters need to be added, please add here)
+			const arrOpr = [
+				['Plus' , '+'],
+				['Minus' , '-'],
+				['Times' , '*'],
+				['Divide' , '/']
+			];
+			const errMsg = "Unexpected Error";
+			
+			//Solver class
+			class Solver {
+				//Do nothing with New
+				constructor() {
+				}
+				
+				//If parameter is object, set them as array
+				setObject(objS) {
+					this.arrCalc = [objS.operand1, objS.operator, objS.operand2];
+				}
+
+				//If parameter is array, set as it is
+				setArray(arrS) {
+					this.arrCalc = arrS;
+				}
+
+				//common method for object and array
+				getResult() {
+					return this.calculator(this.arrCalc);
+				}
+			
+				//main method (recursive)
+				calculator(arrC) {
+					var oprnd1; //operand1
+					var oprtr;  //operator
+					var oprnd2; //operand2
+					
+					//set operand1
+					if (arrC[0].length === undefined){
+					//if parameter1 isn't array
+						//set operand1
+						oprnd1 = arrC[0];
+					} else if (arrC[0].length == 3) {
+					//if parameter1 is array and its length is 3
+						oprnd1 = this.calculator(arrC[0]);
+					} else {
+					//case for wrong input
+						oprnd1 = errMsg;
+					}
+					
+					//set operator
+					oprtr = this.getOpr(arrC[1]);
+					
+					//set operand2
+					if (arrC[2].length === undefined){
+					//if parameter3 isn't array
+						oprnd2 = arrC[2];
+					} else if (arrC[2].length == 3) {
+					//if parameter3 is array and its length is 3
+						oprnd2 = this.calculator(arrC[2]);
+					} else {
+					//case for wrong input
+						oprnd2 = errMsg;
+					}
+
+					try{
+						//execute calculation (*eval isn't good for security but I place importance to maintainable)
+						return eval(oprnd1 + oprtr + oprnd2);
+					}
+					catch(e){
+						//case for wrong input
+						return errMsg;
+					}
+				}
+				
+				//method for convert operator (ex. parameter:"Plus" => return:"+")
+				getOpr(oprKey) {
+					var res = errMsg;
+					arrOpr.forEach((value, key) => { 
+						if(oprKey == value[0]) {
+							res =  value[1];
+						}
+					});
+					return res;
+				}
+				
+			}
+			
+			//case for object input
+			function calcWithObj() {
+				var obj = new Object();
+				obj.operand1 = 3;
+				obj.operator = 'Plus';
+				obj.operand2 = 1;
+				
+				//create Solver instance
+				var slv = new Solver();
+				//set object
+				slv.setObject(obj);
+				//calculate and show on the page
+				document.getElementById("calc").elements["z1"].value = slv.getResult();
+			}
+
+			//case for array input
+			function calcWithArr() {
+				var arr = [3, "Plus", [6, "Times", 2]];
+				//create Solver instance
+				var slv = new Solver();
+				//set array
+				slv.setArray(arr);
+				//calculate and show on the page
+				document.getElementById("calcArr").elements["z2"].value = slv.getResult();
+			}
+		</script>
+	</head>
+	<body>
+		<form id="calc">
+			var obj = new Object();<br/>
+			obj.operand1 = 3;<br/>
+			obj.operator = 'Plus';<br/>
+			obj.operand2 = 1;<br/>
+			<input name="c" type="button" value="=" onclick="calcWithObj()" />
+			<output name="z1">0</output>
+		</form>
+		<br/>
+		<form id="calcArr">
+			var arr = [3, "Plus", [6, "Times", 2]];<br/>
+			<input name="xy" type="button" value="=" onclick="calcWithArr()" />
+			<output name="z2">0</output>
+		</form>
+	</body>
+</html>
